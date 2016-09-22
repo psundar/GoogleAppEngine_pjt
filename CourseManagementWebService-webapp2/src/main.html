@@ -1,0 +1,79 @@
+<html>
+<h1>Department Dashboard</h1>
+<div>
+	<input type="hidden" id="data" value={{jsonData}}/>
+	testing {{jsonData}}
+</div>
+<form action="" method="post"
+accept-charset="utf-8">
+	<table>
+	<tr>	
+		<th><label style="font-weight: bold">Current department data</label></th> 
+		<th></th>
+		<th>&nbsp;&nbsp;&nbsp;</th>
+		<th><label style="font-weight: bold">Adding a new department</label></th>
+		</tr>
+	<tr>
+		<td></td>
+		<td>
+			<table style="width=30%" border="1">
+				<tr>
+					<th>Department ID </th>
+					<th> Department Name </th>
+					<th> To Delete</th>
+					<th> To Edit </th>
+				</tr>
+				
+				
+				{% for dept in department%}
+				<tr>
+					<td>{{dept.department_id}}</td> 
+					<td>{{dept.name}}</td> 
+					<td><input type="checkbox" name="deleteCheck" value="{{dept.department_id}}"></td>
+					<td><input type="radio" name="editRadio" value="{{dept.department_id}}"></td>
+				</tr>	
+				{% endfor %}
+				
+				<tr>
+					<td></td>
+					<td></td>
+					<td><input type="submit" value="delete" name="delete"></td>
+					<td><input type="submit" value="edit" name="edit"></td>
+				</tr>
+			</table>
+		</td>
+		<td>&nbsp;&nbsp;&nbsp;</td>
+		<td>
+			<table>
+				<tr>
+					<td><label>
+						Department id
+						<input type="text" name="dept_id"
+						value="{{dept_id}}" id="dept_id">
+						</label></td>
+				</tr>
+				<tr>
+					<td><label>
+						Department name
+						<input type="text" name="dept_name"
+						value="" id="dept_name">
+						</label></td>
+					<td><p><input type="submit" value="insert" name="insert"></p></td>
+				</tr>	
+				<tr>
+					<td><label style="font-weight: bold">Error Messages:</label></td>
+					<td><div class="error" style="color: red">{{error}}</div></td>
+					
+				</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</form>
+<br>
+<br>
+<form action="" method="post"
+accept-charset="utf-8">	
+	
+</form>
+</html>

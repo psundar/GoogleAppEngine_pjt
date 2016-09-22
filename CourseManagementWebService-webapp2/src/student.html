@@ -1,0 +1,112 @@
+<html>
+<h1>Student Dashboard</h1>
+<form action="" method="post"
+accept-charset="utf-8">
+	<table>
+	<tr>	
+		<th><label style="font-weight: bold">Current student data</label></th> 
+		<th></th>
+		<th><label style="font-weight: bold">Adding a new student</label></th>
+		</tr>
+	<tr>
+		<td>
+			<table style="width=30%" border="1">
+				<tr>
+					<th>Student ID </th>
+					<th> Student Name </th>
+					<th> Address </th>
+					<th> Phone Number </th>
+					<th> Department ID</th>
+					<th> Study Lists </th>
+					<th> To Delete</th>
+					<th> To Edit </th>
+				</tr>
+				{% for student in students%}
+				<tr>
+					<td>{{student.student_id}}</td> 
+					<td>{{student.name}}</td>
+					<td>{{student.address}}</td>
+					<td>{{student.phone_number}}</td>
+					<td>{{student.department}}</td>
+					<td>{{student.study_lists}}</td>
+					<td><input type="checkbox" name="deleteCheck" value="{{student.student_id}}"></td>
+					<td><input type="radio" name="editRadio" value="{{student.student_id}}"></td>
+				</tr>	
+				{% endfor %}
+				
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					
+					<td><input type="submit" value="delete" name="delete"></td>
+					<td><input type="submit" value="edit" name="edit"></td>
+				</tr>
+			</table>
+		</td>
+		<td></td>
+		<td>
+			<table>
+				<tr>
+					<td><label>
+						Student ID
+						</label></td>
+					<td>	
+						<input type="text" name="student_id" 
+						value="{{student_id}}" id="student_id">
+					</td>
+				</tr>
+				<tr>
+					<td><label>
+						Student name
+						</label></td>
+					<td>
+						<input type="text" name="student_name"
+						value="{{student_name}}" id="student_name">
+					</td>
+				</tr>
+				<tr>
+					<td><label>
+						Address
+						</label></td>
+					<td>
+						<input type="text" name="address"
+						value="" id="address">
+					</td>	
+				</tr>
+				<tr>
+					<td><label>
+						Phone Number
+						</label></td>
+					<td>
+						<input type="text" name="phone_number"
+						value="" id="phone_number">
+					</td>
+				</tr>
+				<tr>
+					<td><label>
+						Department ID
+						</label></td>
+					<td>
+						<input type="text" name="dept_id"
+						value="" id="dept_id">
+					</td>	
+				</tr>
+				<tr>
+					<td></td>	
+					<td><p><input type="submit" value="insert" name="insert"></p></td>
+				</tr>	
+				<tr>
+					<td><label style="font-weight: bold">Error Messages:</label></td>
+					<td><div class="error" style="color: red">{{error}}</div></td>
+					<td></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</form>
+</html>

@@ -1,0 +1,104 @@
+<html>
+<h1>Enrollments Dashboard</h1>
+
+<form action="" method="post"
+accept-charset="utf-8">
+	<table>
+	<tr>	
+		<th><label style="font-weight: bold">Current enrollments data</label></th> 
+		<th></th>
+		<th><label style="font-weight: bold">Adding a new enrollments</label></th>
+		</tr>
+	<tr>
+		<td></td>
+		<td>
+			<table style="width=30%" border="1">
+				<tr>
+					<th>Student ID </th>
+					<th> Course ID</th>
+					<th> Department ID</th>
+					<th> Year </th>
+					<th> Quarter </th>
+					<th> To Delete</th>
+					</tr>
+				
+				{% for en in enrollments%}
+				  {% for r in en%}
+				<tr>
+					<td>{{r.student.student_id}}</td> 
+					<td>{{r.schedule.course.id}}</td>
+					<td> {{r.schedule.department.id}}</td> 
+					<td>{{r.schedule.year}}</td>
+					<td>{{r.schedule.quarter}}</td>
+					<td><input type="checkbox" name="deleteCheck" value="{{r.e_key.urlsafe}}"></td>
+					
+				</tr>	
+					{% endfor %}
+				{% endfor %}
+				
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><input type="submit" value="delete" name="delete"></td>
+				</tr>
+			</table>
+		</td>
+		<td>&nbsp;&nbsp;&nbsp;</td>
+		<td>
+			<table>
+				<tr>
+					<th></th><th></th><th></th>
+				</tr>
+				<tr>
+					<td><label>
+						Student id
+						</label></td>
+					<td>
+						<input type="text" name="student_id"
+						value="{{student_id}}" id="student_id">
+					</td>	
+				</tr>
+				<tr>
+					<td><label>
+						Year
+						</label></td>
+						<td>
+						<input type="text" name="year"
+						value="" id="year">
+						</td>
+				</tr>
+				<tr>
+					<td><label>
+						Quarter
+						</label></td>
+					<td>
+						<input type="text" name="quarter"
+						value="" id="quarter">
+					</td>
+				</tr>
+				<tr>	
+					<td><label>
+						Course ID
+						</label></td>
+					<td>
+						<input type="text" name="course_id"
+						value="" id="course_id">
+					</td>
+				</tr>
+				<tr>
+					<td><p><input type="submit" value="insert" name="insert"></p></td>
+				</tr>	
+				<tr>
+					<td><label style="font-weight: bold">Error Messages:</label></td>
+					<td><div class="error" style="color: red">{{error}}</div></td>
+					<td></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</form>
+</html>

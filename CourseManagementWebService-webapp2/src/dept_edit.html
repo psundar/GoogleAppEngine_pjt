@@ -1,0 +1,18 @@
+<html>
+<form action="" method = "post"
+accept-charset="utf-8">
+	<table>
+		<tr><th>Edit Department</th><th></th></tr>
+		<tr>
+			<td>Department id: </td>
+			<td><label>{{department.department_id}}</label></td>
+			<td>Department name: </td>
+			<td><input type="text" name = "dept_name" value="{{department.name}}"></td>
+			<td><input type="hidden" name="dept_id" value = {{department.department_id}}></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="save" value="save"></td>
+		</tr>
+	</table>
+</form>
+</html>

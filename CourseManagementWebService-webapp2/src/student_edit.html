@@ -1,0 +1,24 @@
+<html>
+<form action="" method = "post"
+accept-charset="utf-8">
+	<table>
+		<tr><th>Edit Student</th><th></th></tr>
+		<tr>
+			<td> Student id: </td>
+			<td> {{student.student_id}}</td>
+			<td> Student name: </td>
+			<td> <input type="text" name="student_name" value="{{student.name}}"> </td>
+			<td>Department id: </td>
+			<td><input type="text" name="dept_id" value="{{dept_id}}"></td>
+			<td> Address </td>
+			<td> <input type="text" name="address" value="{{student.address}}"></td>
+			<td>Phone number: </td>
+			<td><input type="text" name="phone_number" value="{{student.phone_number}}"></td>
+			<td><input type="hidden" name="student_id" value = {{student.student_id}}></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="save" value="save"></td>
+		</tr>
+	</table>
+</form>
+</html>
